@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>てすと</title>
+    <title>ランダムぷよシミュ（闇）</title>
     <script>
       function openRandom() {
-        var id = Math.floor(Math.random() * 5) + 1;
-        fetch("https://ref3000.github.io/puyosim-generator/sim/" + id + ".txt")
+        var id = Math.floor(Math.random() * 65535);
+        fetch(
+          "https://ref3000.github.io/puyosim-generator/sim/split_" + id + ".txt"
+        )
           .then(response => {
             return response.text();
           })
           .then(body => {
-            location.href = body;
+            // location.href = body;
+            window.open(body);
           });
       }
     </script>
   </head>
   <body>
-    <button onclick="openRandom()">ランダムぼたん</button>
+    <h1>ランダムぷよシミュ（闇）</h1>
+    <button onclick="openRandom()">ランダムにぷよシミュを開く！！！</button>
   </body>
 </html>
